@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import Gallery from "./Gallery"
 import type { SectionProps } from "@/types"
 
 const contactButtons = [
@@ -24,7 +25,11 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
         </motion.div>
       )}
       <motion.h2
-        className="text-4xl md:text-6xl lg:text-[5rem] xl:text-[6rem] font-bold leading-[1.1] tracking-tight max-w-4xl text-white"
+        className={`font-bold leading-[1.1] tracking-tight max-w-4xl text-white ${
+          gallery
+            ? 'text-3xl md:text-5xl lg:text-6xl'
+            : 'text-4xl md:text-6xl lg:text-[5rem] xl:text-[6rem]'
+        }`}
         initial={{ opacity: 0, y: 50 }}
         animate={isActive ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
@@ -33,7 +38,9 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
       </motion.h2>
       {content && (
         <motion.p
-          className="text-lg md:text-xl lg:text-2xl max-w-2xl mt-6 text-neutral-400"
+          className={`max-w-2xl mt-4 text-neutral-400 ${
+            gallery ? 'text-base md:text-lg' : 'text-lg md:text-xl lg:text-2xl mt-6'
+          }`}
           initial={{ opacity: 0, y: 50 }}
           animate={isActive ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -42,25 +49,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
         </motion.p>
       )}
       {gallery && gallery.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin"
-          style={{ scrollbarColor: '#E30613 transparent' }}
-        >
-          {gallery.map((src, idx) => (
-            <a
-              key={idx}
-              href={src}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 w-72 md:w-96 h-48 md:h-60 rounded-lg overflow-hidden border-2 border-neutral-800 hover:border-[#E30613] transition-colors snap-start"
-            >
-              <img src={src} alt={`Работа ${idx + 1}`} className="w-full h-full object-cover" />
-            </a>
-          ))}
-        </motion.div>
+        <Gallery images={gallery} isActive={isActive} />
       )}
       {showButton && (
         <motion.div
