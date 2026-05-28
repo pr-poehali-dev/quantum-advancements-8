@@ -10,7 +10,7 @@ const contactButtons = [
   { label: 'Как добраться', href: 'https://yandex.ru/maps/-/CPHEqVKN', icon: 'MapPin' },
 ]
 
-export default function Section({ id, title, subtitle, content, isActive, showButton }: SectionProps) {
+export default function Section({ id, title, subtitle, content, isActive, showButton, gallery }: SectionProps) {
   return (
     <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center p-8 md:p-16 lg:p-24">
       {subtitle && (
@@ -40,6 +40,27 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
         >
           {content}
         </motion.p>
+      )}
+      {gallery && gallery.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isActive ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-10 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin"
+          style={{ scrollbarColor: '#E30613 transparent' }}
+        >
+          {gallery.map((src, idx) => (
+            <a
+              key={idx}
+              href={src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 w-72 md:w-96 h-48 md:h-60 rounded-lg overflow-hidden border-2 border-neutral-800 hover:border-[#E30613] transition-colors snap-start"
+            >
+              <img src={src} alt={`Работа ${idx + 1}`} className="w-full h-full object-cover" />
+            </a>
+          ))}
+        </motion.div>
       )}
       {showButton && (
         <motion.div
