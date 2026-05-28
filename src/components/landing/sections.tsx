@@ -38,6 +38,10 @@ export const sections = [
     title: 'Наши работы',
     content: 'Реальные результаты до и после. Полировка, замена оптики, установка би-LED линз — каждая фара получает новую жизнь.',
     gallery: [
+      'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/96420c7f-f032-42c7-b752-b1e174d11717.png',
+      'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/79b6a8d8-1241-401b-8357-732aed795329.png',
+      'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/718ed6d2-423c-4687-affe-8b1b75267855.png',
+      'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/7a99d4f4-5af8-4155-b7ca-9d5d7a5c98f9.png',
       'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/83e7697e-3c23-4aca-af8f-02602958ce8d.png',
       'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/2568bf3a-673d-449c-b9ae-0844bcdf7f5e.png',
       'https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/17d902fe-2990-4a76-bb73-fab02bb321c0.png',
