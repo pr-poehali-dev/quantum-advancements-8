@@ -8,7 +8,7 @@ export const sections = [
         <img
           src="https://cdn.poehali.dev/projects/6d75a5f8-53a9-4194-bae1-8eab992adfb3/bucket/7c857464-fd6f-4a38-81a1-af692112a73f.png"
           alt="ЛЕД АВТО"
-          className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+          className="h-16 sm:h-24 md:h-32 lg:h-40 w-auto object-contain"
           style={{ filter: 'invert(1) hue-rotate(180deg) saturate(15) contrast(1.4) brightness(1.2)' }}
         />
         <Badge variant="outline" className="text-white border-white w-fit">Студия автосвета</Badge>

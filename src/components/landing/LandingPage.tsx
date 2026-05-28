@@ -34,20 +34,21 @@ export default function LandingPage() {
 
   const handleNavClick = (index: number) => {
     if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: index * window.innerHeight,
-        behavior: 'smooth'
-      })
+      const sectionEl = containerRef.current.children[index] as HTMLElement
+      if (sectionEl) {
+        sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
   return (
     <Layout>
-      <nav className="fixed top-0 right-0 h-screen flex flex-col justify-center z-30 p-4">
+      <nav className="fixed top-1/2 -translate-y-1/2 right-0 flex flex-col justify-center z-30 p-2 md:p-4 safe-top safe-bottom">
         {sections.map((section, index) => (
           <button
             key={section.id}
-            className={`w-3 h-3 rounded-full my-2 transition-all ${
+            aria-label={`Перейти к секции ${index + 1}`}
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full my-1.5 md:my-2 transition-all ${
               index === activeSection ? 'bg-white scale-150' : 'bg-gray-600'
             }`}
             onClick={() => handleNavClick(index)}
@@ -55,12 +56,13 @@ export default function LandingPage() {
         ))}
       </nav>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-0.5 bg-white origin-left z-30"
+        className="fixed top-0 left-0 right-0 h-1 bg-[#E30613] origin-left z-30"
         style={{ scaleX }}
       />
       <div
         ref={containerRef}
-        className="h-full overflow-y-auto snap-y snap-mandatory"
+        className="h-full overflow-y-auto snap-y snap-mandatory overscroll-none"
+        style={{ WebkitOverflowScrolling: 'touch' }}
       >
         {sections.map((section, index) => (
           <Section
