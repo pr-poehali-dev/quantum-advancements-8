@@ -7,6 +7,7 @@ const contactButtons = [
   { label: 'Позвонить', href: 'tel:+79505516240', icon: 'Phone' },
   { label: 'Telegram', href: 'https://t.me/Ledavtoekb', icon: 'Send' },
   { label: 'MAX', href: 'https://max.ru/+79505516240', icon: 'MessageCircle' },
+  { label: 'Как добраться', href: 'https://yandex.ru/maps/-/CPHEqVKN', icon: 'MapPin' },
 ]
 
 export default function Section({ id, title, subtitle, content, isActive, showButton }: SectionProps) {
