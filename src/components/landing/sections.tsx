@@ -14,7 +14,7 @@ export const sections = [
         <Badge variant="outline" className="text-white border-white w-fit">Студия автосвета</Badge>
       </div>
     ),
-    title: "Свет, который меняет всё.",
+    title: "Будь ярче — освещай свой путь.",
     showButton: true,
     buttonText: 'Записаться'
   },
